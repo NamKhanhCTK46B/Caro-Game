@@ -1,7 +1,5 @@
 # 🎮 CARO GAME - TRÒ CHƠI CỜ CARO
 
-**Phiên bản:** 1.0-SNAPSHOT  
-**Tác giả:** 2212391 - Nguyễn Hoàng Nam Khánh  
 **Ngày tạo:** 26/10/2025  
 **Ngày cập nhật:** 27/10/2025
 
@@ -326,15 +324,6 @@ Contributions are welcome! Please:
 3. Commit changes (`git commit -m 'Add AmazingFeature'`)
 4. Push to branch (`git push origin feature/AmazingFeature`)
 5. Open Pull Request
-
-
----
-
-## 👨‍💻 Tác giả
-
-**Nguyễn Hoàng Nam Khánh**
-- MSSV: 2212391
-- Trường: Đại học Đà Lạt
 
 ---
 
