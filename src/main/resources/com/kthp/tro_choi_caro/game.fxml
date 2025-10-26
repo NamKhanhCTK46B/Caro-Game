@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane stylesheets="@css/game.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kthp.tro_choi_caro.controller.GameController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+    
+    <!-- Center - Layout 2 cột: Bàn cờ bên trái, Thông tin bên phải -->
+    <center>
+        <HBox alignment="CENTER" prefHeight="760" spacing="20.0" styleClass="game-background">
+            <!-- LEFT: Game Board with ScrollPane -->
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
+                <VBox alignment="CENTER" styleClass="board-panel">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    
+                    <!-- Bàn cờ với shadow đẹp -->
+                    <GridPane fx:id="boardGrid" alignment="CENTER" hgap="3.0" styleClass="board-grid" vgap="3.0">
+                    </GridPane>
+                </VBox>
+            </ScrollPane>
+            
+            <!-- RIGHT: Game Info Panel with ScrollPane -->
+            <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" maxWidth="420" prefWidth="420" style="-fx-background: transparent; -fx-background-color: transparent;" vbarPolicy="AS_NEEDED">
+                <VBox alignment="TOP_CENTER" prefWidth="380" spacing="20.0" styleClass="info-panel">
+                    <padding>
+                        <Insets bottom="25" left="25" right="25" top="25" />
+                    </padding>
+                
+                <!-- Title -->
+                <Label alignment="CENTER" styleClass="game-title" text="🎮 TRÒ CHƠI CARO 🎮" wrapText="true">
+                    <font>
+                        <Font name="System Bold" size="28.0" />
+                    </font>
+                </Label>
+                
+                <Separator prefWidth="330" styleClass="separator-line" />
+                
+                <!-- Game Status Section -->
+                <VBox alignment="CENTER" spacing="12.0" styleClass="status-section">
+                    
+                    <!-- Difficulty -->
+                    <HBox alignment="CENTER" spacing="10.0">
+                        <Label styleClass="status-label" text="⚙ Độ khó:">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="difficultyLabel" styleClass="status-value, status-value-blue" text="Trung Bình">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+                    
+                    <!-- Turn -->
+                    <HBox alignment="CENTER" spacing="10.0">
+                        <Label styleClass="status-label" text="🎯 Lượt chơi:">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="turnLabel" styleClass="status-value, status-value-red" text="Bạn (X)">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                    </HBox>
+                    
+                    <!-- Status -->
+                    <Label fx:id="statusLabel" alignment="CENTER" maxWidth="320" styleClass="status-value, status-value-green" text="Trò chơi bắt đầu! Lượt của bạn (X)" wrapText="true">
+                        <font>
+                            <Font name="System Bold" size="16.0" />
+                        </font>
+                    </Label>
+                </VBox>
+                
+                <Separator prefWidth="330" styleClass="separator-line" />
+                
+                <!-- Score Section -->
+                <VBox alignment="CENTER" spacing="8.0" styleClass="score-section">
+                    <Label styleClass="score-title" text="🏆 BẢNG ĐIỂM 🏆">
+                        <font>
+                            <Font name="System Bold" size="18.0" />
+                        </font>
+                    </Label>
+                    
+                    <Label fx:id="scoreLabel" alignment="CENTER" maxWidth="330" styleClass="score-label" text="Bạn 0 - AI 0 (Hòa: 0) | Tổng: 0 ván" wrapText="true">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                </VBox>
+                
+                <Separator prefWidth="330" styleClass="separator-line" />
+                
+                <!-- Control Buttons -->
+                <VBox alignment="CENTER" spacing="12.0">
+                    <!-- Row 1: Ván Mới & Menu -->
+                    <HBox alignment="CENTER" spacing="12.0">
+                        <Button fx:id="newGameButton" onAction="#handleNewGame" styleClass="game-button, btn-green" text="🔄 Ván Mới">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                        
+                        <Button onAction="#handleBackToMenu" styleClass="game-button, btn-blue" text="🏠 Menu">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                    </HBox>
+                    
+                    <!-- Row 2: Undo & Redo -->
+                    <HBox alignment="CENTER" spacing="12.0">
+                        <Button fx:id="undoButton" onAction="#handleUndo" styleClass="game-button, btn-purple" text="↶ Hoàn Tác">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                        
+                        <Button fx:id="redoButton" onAction="#handleRedo" styleClass="game-button, btn-cyan" text="↷ Làm Lại">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                    </HBox>
+                    
+                    <!-- Row 3: Thống Kê & Reset -->
+                    <HBox alignment="CENTER" spacing="12.0">
+                        <Button onAction="#handleShowStats" styleClass="game-button, btn-orange" text="📊 Thống Kê">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                        
+                        <Button onAction="#handleResetScore" styleClass="game-button, btn-red" text="🔄 Reset Điểm">
+                            <font>
+                                <Font name="System Bold" size="14.0" />
+                            </font>
+                        </Button>
+                    </HBox>
+                </VBox>
+                
+                <Separator prefWidth="330" styleClass="separator-line" />
+                
+                <!-- Info Footer -->
+                <VBox alignment="CENTER" spacing="10.0">
+                    <Label styleClass="info-item, info-item-red" text="🔴 Bạn: X (Đỏ)">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                    <Label styleClass="info-item, info-item-blue" text="🔵 AI: O (Xanh)">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                    <Label styleClass="info-item, info-item-orange" text="🏆 5 quân liên tiếp để thắng!">
+                        <font>
+                            <Font name="System Bold" size="14.0" />
+                        </font>
+                    </Label>
+                </VBox>
+                </VBox>
+            </ScrollPane>
+        </HBox>
+    </center>
+    
+    <!-- Bottom - Removed (all content moved to right panel) -->
+    <bottom>
+    </bottom>
+</BorderPane>
