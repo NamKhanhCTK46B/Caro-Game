@@ -2942,7 +2942,7 @@ Hard AI với 85% win rate là đủ challenging cho experts, nhưng vẫn beata
 
 ---
 
-**Ngày cập nhật:** 26/10/2025  
+ 
 **Người viết:** Team KTHP (với AI Assistant)  
 **Phiên bản:** 2.0 - Extended với examples và code chi tiết  
 **Dòng code:** ~2,500 lines documentation + ~800 lines code

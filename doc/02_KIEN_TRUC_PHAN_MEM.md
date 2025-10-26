@@ -2440,6 +2440,6 @@ GameController -> UI: redrawBoard(board)
 
 ---
 
-**Ngày tạo:** 21/10/2025  
+ 
 **Người viết:** Team KTHP  
 **Phiên bản:** 1.0  

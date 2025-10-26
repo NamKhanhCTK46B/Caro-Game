@@ -1080,7 +1080,7 @@ EasyAIStrategy ◁───── AIStrategy
 
 ---
 
-**Ngày tạo:** 25/10/2025  
+ 
 **Người viết:** 2212391- Nguyễn Hoàng Nam Khánh  
 **Phiên bản:** 2.0  
 **Tổng số trang:** 15+

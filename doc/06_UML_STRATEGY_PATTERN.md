@@ -4,7 +4,7 @@
 
 File này chứa Class Diagram UML chi tiết cho **Strategy Pattern** được áp dụng trong hệ thống AI của Trò Chơi Caro.
 
-**Ngày tạo:** 26/10/2025  
+ 
 **Tác giả:** 2212391- Nguyễn Hoàng Nam Khánh  
 **Design Pattern:** Strategy Pattern
 
@@ -833,6 +833,5 @@ Strategy Pattern được áp dụng xuất sắc trong hệ thống AI của Tr
 ---
 
 **Tác giả:** 2212391- Nguyễn Hoàng Nam Khánh  
-**Ngày tạo:** 26/10/2025  
 **Phiên bản:** 1.0  
 **Loại diagram:** Class Diagram UML - Strategy Pattern

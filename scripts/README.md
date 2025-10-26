@@ -10,7 +10,7 @@ Thư mục này chứa các script tự động hóa để build và chạy dự
 
 
 
-**Ngày cập nhật:** 27/10/2025 - **ĐÃ TỐI ƯU: 10 scripts → 4 scripts****Đường dẫn:** `D:\university\mau-thiet-ke\ket-thuc-hoc-phan\tro_choi_caro\scripts\`
+ 
 
 
 
@@ -664,7 +664,7 @@ mvn javafx:run
 
 **Tác giả:** 2212391 - Nguyễn Hoàng Nam Khánh  - [ ] `mvn -version` hoạt động
 
-**Ngày cập nhật:** 27/10/2025  - [ ] Đang ở đúng thư mục project
+ 
 
 **Phiên bản:** 2.0 (Tối ưu)- [ ] Không có process Java nào đang chạy
 
@@ -682,5 +682,4 @@ mvn javafx:run
 ---
 
 **Tác giả:** 2212391- Nguyễn Hoàng Nam Khánh  
-**Ngày tạo:** 26/10/2025  
 **Phiên bản:** 1.0

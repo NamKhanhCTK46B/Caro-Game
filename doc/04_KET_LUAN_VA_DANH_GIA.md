@@ -653,7 +653,7 @@ Dự án **Trò chơi Caro** đã giúp chúng tôi:
 
 ---
 
-**Ngày tạo:** 21/10/2025  
+ 
 **Người viết:** Team KTHP  
 **Phiên bản:** 1.0  
 **Status:** Final Release ✅

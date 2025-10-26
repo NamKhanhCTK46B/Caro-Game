@@ -1,7 +1,6 @@
 # 🎮 CARO GAME - TRÒ CHƠI CỜ CARO
 
-**Ngày tạo:** 26/10/2025  
-**Ngày cập nhật:** 27/10/2025
+ 
 
 ---
 

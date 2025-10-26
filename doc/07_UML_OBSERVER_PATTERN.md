@@ -4,7 +4,7 @@
 
 File này chứa Class Diagram UML chi tiết cho **Observer Pattern** được áp dụng trong kiến trúc MVC của Trò Chơi Caro.
 
-**Ngày tạo:** 26/10/2025  
+ 
 **Tác giả:** 2212391- Nguyễn Hoàng Nam Khánh  
 **Design Pattern:** Observer Pattern
 
@@ -2124,6 +2124,5 @@ Observer Pattern được áp dụng xuất sắc trong kiến trúc MVC của T
 ---
 
 **Tác giả:** 2212391- Nguyễn Hoàng Nam Khánh  
-**Ngày tạo:** 26/10/2025  
 **Phiên bản:** 1.0  
 **Loại diagram:** Class Diagram UML - Observer Pattern

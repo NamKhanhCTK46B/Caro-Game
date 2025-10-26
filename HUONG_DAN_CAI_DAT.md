@@ -1,7 +1,6 @@
 # 📦 HƯỚNG DẪN CÀI ĐẶT VÀ SỬ DỤNG - CARO GAME
 
 **Phiên bản:** 2.0 (Đã tối ưu scripts)  
-**Ngày cập nhật:** 27/10/2025  
 **Tác giả:** 2212391 - Nguyễn Hoàng Nam Khánh
 
 ---
@@ -1013,7 +1012,6 @@ mvn dependency:tree
 
 **Tác giả:** 2212391 - Nguyễn Hoàng Nam Khánh  
 **Phiên bản tài liệu:** 2.0 (Đã cập nhật scripts mới)  
-**Ngày cập nhật:** 27/10/2025  
 **Status:** ✅ Hoàn thành
 
 ---
@@ -1042,5 +1040,4 @@ mvn dependency:tree
 ---
 
 **Phiên bản tài liệu:** 1.0  
-**Ngày cập nhật:** 27/10/2025  
 **Tác giả:** 2212391 - Nguyễn Hoàng Nam Khánh

@@ -1,0 +1,284 @@
+================================================================================
+  THÔNG TIN DỰ ÁN GITHUB - CARO GAME
+================================================================================
+
+THÔNG TIN CƠ BẢN
+----------------
+Tên dự án:      ỨNG DỤNG CÁC MẪU THIẾT KẾ PHẦN MỀM TRONG XÂY DỰNG TRÒ CHƠI CARO
+Chủ sở hữu:     Nguyễn Hoàng Nam Khánh
+Repository:     https://github.com/NamKhanhCTK46B/Caro-Game
+Branch chính:   main
+Phiên bản:      v1.0.0
+ 
+
+MÔ TẢ DỰ ÁN
+-----------
+Trò chơi Cờ Caro (Gomoku) với giao diện JavaFX và 3 mức độ AI khác nhau.
+Game desktop cross-platform (Windows/macOS/Linux) với giao diện hiện đại
+và thuật toán AI từ Easy đến Hard (Minimax + Alpha-Beta Pruning).
+
+TÍNH NĂNG CHÍNH
+---------------
+- Bàn chơi 15x15 (Gomoku/Caro chuẩn)
+- 3 mức độ AI:
+  * Easy: Random AI (chơi ngẫu nhiên)
+  * Medium: Heuristic AI (đánh giá pattern)
+  * Hard: Minimax AI với Alpha-Beta Pruning
+- Phát hiện tự động 5 quân liên tiếp (ngang/dọc/chéo)
+- Highlight dòng thắng
+- Undo/Redo không giới hạn
+- Theo dõi điểm số liên tục
+- Giao diện JavaFX mượt mà với CSS styling
+
+CÔNG NGHỆ SỬ DỤNG
+-----------------
+Trạng thái:      Đang phát triển
+- Design Patterns: MVC, Strategy, Observer, Memento, Singleton
+- Version Control: Git
+
+KỸ THUẬT PHẦN MỀM
+-----------------
+Trạng thái:      Đang phát triển
+  - Observer Pattern: Tự động cập nhật UI
+  - Memento Pattern: Lưu/phục hồi trạng thái game
+  - Singleton Pattern: Quản lý điểm số tập trung
+
+AI Algorithms:
+  - Easy: Random move selection
+  - Medium: Heuristic evaluation (pattern matching)
+  - Hard: Minimax with Alpha-Beta Pruning (depth 3-4)
+
+THỐNG KÊ DỰ ÁN
+--------------
+Lines of Code:    ~2,000 LOC
+Java Classes:     20 classes
+  - Model:        10 classes
+  - Controller:   2 classes
+  - Strategy:     5 classes (AI)
+  - View:         1 interface
+  - Main:         1 class
+
+Documentation:    13 MD files (~550 KB)
+  - Tổng quan dự án
+  - Kiến trúc phần mềm
+  - Thuật toán AI (2,500+ dòng)
+  - Kết luận và đánh giá
+  - UML diagrams (3 patterns)
+  - Hướng dẫn cài đặt
+  - Scripts documentation
+
+Build Scripts:    5 BAT files
+  - build.bat: Build và compile
+  - run.bat: Chạy ứng dụng
+  - cleanup.bat: Dọn dẹp project
+  - install-maven.bat: Cài Maven
+  - optimize.bat: Tối ưu dung lượng
+
+CẤU TRÚC THƯ MỤC
+----------------
+caro-game/
+├── src/main/java/          # Source code (20 Java files)
+│   ├── controller/         # Game & Menu controllers
+│   ├── model/              # Game logic (10 classes)
+│   ├── strategy/           # AI algorithms (5 classes)
+│   └── view/               # Observer interface
+├── src/main/resources/     # FXML + CSS
+├── doc/                    # Documentation (13 MD files)
+├── scripts/                # Build scripts (5 BAT files)
+├── release/                # Distribution package
+│   ├── caro-game.jar       # Executable JAR (9.5 MB)
+│   ├── README.txt          # User guide
+│   └── CHANGELOG.md        # Version history
+├── target/                 # Build output
+│   └── caro-game.jar       # Main executable
+├── pom.xml                 # Maven configuration
+└── README.md               # Project overview
+
+DUNG LƯỢNG
+----------
+Tổng dung lượng dự án:   18.83 MB
+  - JAR files:        18.15 MB (2 files)
+  - Documentation:    0.54 MB (13 MD files)
+  - Source code:      0.09 MB (20 Java files)
+  - Scripts:          0.02 MB (5 BAT files)
+  - Other files:      0.03 MB
+
+Phân tích chi tiết:
+  - target/caro-game.jar:     9.07 MB (Main executable)
+  - release/caro-game.jar:    9.07 MB (Distribution)
+  - Source + Docs:            0.69 MB
+
+GÓI PHÂN PHỐI (RELEASE PACKAGE)
+---------------
+Vị trí:         release/
+Files:
+  - caro-game.jar       (9.5 MB) - Executable JAR
+  - README.txt          (3 KB)   - Quick start guide
+  - CHANGELOG.md        (7 KB)   - Version history
+
+Phân phối:
+  - File ZIP:           caro-game-v1.0.0.zip (8.6 MB compressed)
+  - Platform:           Cross-platform (Windows/macOS/Linux)
+  - Yêu cầu:            Java 11+ JRE
+
+YÊU CẦU HỆ THỐNG
+----------------
+Development:
+  - JDK:              11 hoặc cao hơn (khuyến nghị: JDK 21)
+  - Maven:            3.6 hoặc cao hơn
+  - IDE:              IntelliJ IDEA / Eclipse / VS Code (tùy chọn)
+  - OS:               Windows 10/11, macOS 10.14+, Linux
+
+End-user:
+  - Java Runtime:     JRE 11 hoặc cao hơn
+  - RAM:              2 GB tối thiểu
+  - Storage:          50 MB
+  - OS:               Windows 10/11, macOS 10.14+, Linux
+
+HƯỚNG DẪN BUILD
+---------------
+1. Clone repository:
+   git clone https://github.com/NamKhanhCTK46B/Caro-Game.git
+   cd Caro-Game
+
+2. Build project:
+   mvn clean package
+
+3. Chạy ứng dụng:
+   java -jar target/caro-game.jar
+
+4. Hoặc sử dụng scripts:
+   .\scripts\build.bat       (Build project)
+   .\scripts\run.bat         (Chạy ứng dụng)
+   .\scripts\optimize.bat    (Tối ưu dung lượng)
+
+COMMITS VÀ TAGS
+---------------
+Tổng số commits:    6 commits
+Commit mới nhất:    fc78f74 - "perf: Optimize project size - Save 8.29 MB"
+
+Tags:
+  - v1.0.0 (870bb46) - Initial Stable Release
+
+Lịch sử commits:
+  1. Initial commit: Caro Game - Java Desktop Application
+  2. Merge remote-tracking branch 'origin/main'
+  3. docs: Add comprehensive CHANGELOG.md for v1.0.0
+  4. docs: Update README.md - Remove redundant author information
+  5. feat: Build JAR and create simple release package
+  6. perf: Optimize project size - Save 8.29 MB
+
+NGƯỜI ĐÓNG GÓP
+------------
+Tác giả:        Nguyễn Hoàng Nam Khánh
+Mã số SV:       2212391
+Email:          2212391@dlu.edu.vn
+Trường:         Đại học Đà Lạt
+Môn học:        Thiết kế Phần mềm
+Năm học:        2024-2025
+
+GIẤY PHÉP
+---------
+License:        Educational Use
+Mục đích:       Dự án học tập cho môn Thiết kế Phần mềm
+Hạn chế:        Chỉ dành cho mục đích giáo dục và nghiên cứu
+
+LIÊN KẾT
+--------
+GitHub Repository:
+  https://github.com/NamKhanhCTK46B/Caro-Game
+
+GitHub Issues:
+  https://github.com/NamKhanhCTK46B/Caro-Game/issues
+
+GitHub Releases:
+  https://github.com/NamKhanhCTK46B/Caro-Game/releases
+
+Source Code:
+  https://github.com/NamKhanhCTK46B/Caro-Game/tree/main/src
+
+Documentation:
+  https://github.com/NamKhanhCTK46B/Caro-Game/tree/main/doc
+
+BÁO LỖI VÀ HỖ TRỢ
+-----------------
+Nếu gặp vấn đề hoặc có góp ý, vui lòng:
+1. Tạo Issue trên GitHub: 
+   https://github.com/NamKhanhCTK46B/Caro-Game/issues
+
+2. Hoặc liên hệ trực tiếp:
+   Email: 2212391@dlu.edu.vn
+
+3. Xem tài liệu:
+   - README.md - Tổng quan dự án
+   - HUONG_DAN_CAI_DAT.md - Hướng dẫn cài đặt chi tiết
+   - doc/ - Tài liệu kỹ thuật đầy đủ
+
+CHANGELOG
+---------
+Phiên bản 1.0.0 (27/10/2025) - Phát hành ban đầu
+  Tính năng:
+    - Hoàn thiện Caro Game với giao diện JavaFX
+    - 3 mức độ AI (Easy/Medium/Hard)
+    - Chức năng Undo/Redo
+    - Hệ thống theo dõi điểm số
+    - Triển khai 5 design patterns
+  
+  Kỹ thuật:
+    - Java 11+ / JavaFX 21
+    - Hệ thống build Maven
+    - Executable JAR (~9.5 MB)
+    - 20 Java classes, ~2,000 LOC
+  
+  Tài liệu:
+    - 8 file MD toàn diện
+    - Hướng dẫn cài đặt với khắc phục sự cố
+    - Tài liệu thuật toán AI đầy đủ
+  
+  Tối ưu hóa:
+    - Giảm 30% dung lượng dự án (tiết kiệm 8.29 MB)
+    - Tối ưu build artifacts
+    - Gói phân phối gọn gàng
+
+TỐI ƯU HÓA
+---------
+Tối ưu hóa v1.0.0:
+  - Đã xóa compiled classes (0.06 MB)
+  - Đã xóa JAR gốc không có dependencies (0.04 MB)
+  - Đã xóa Maven metadata
+  - Đã xóa file ZIP tạm thời (8.19 MB)
+  - Tổng tiết kiệm: 8.29 MB (~30% giảm dung lượng)
+  - Dung lượng cuối: 18.83 MB (nhẹ & đầy đủ)
+
+Scripts:
+  - optimize.bat: Script dọn dẹp thông minh
+  - Cập nhật .gitignore để loại trừ build artifacts
+
+LỘ TRÌNH PHÁT TRIỂN
+-------
+Phiên bản 1.1 (Dự kiến):
+  - Hỗ trợ chơi trực tuyến nhiều người
+  - Hệ thống replay game
+  - Bảng thống kê nâng cao
+  - Kích thước bàn chơi tùy chỉnh (10x10, 20x20)
+  - Giao diện và skin
+
+Phiên bản 2.0 (Tương lai):
+  - Tùy chỉnh độ khó AI
+  - Chế độ giải đấu
+  - Hệ thống thành tích
+  - Phiên bản mobile đa nền tảng
+  - Lưu trữ và đồng bộ cloud
+
+THÔNG TIN BỔ SUNG
+-----------------
+Trạng thái:      Đang phát triển
+Phiên bản:       1.0.0 Stable
+Repository:      Public
+Ngôn ngữ:        Java (100%)
+Framework:       JavaFX
+
+================================================================================
+File này được tạo tự động bởi GitHub Project Info Generator
+Email: 2212391@dlu.edu.vn
+================================================================================

@@ -346,6 +346,6 @@ Dự án là một ví dụ điển hình về cách áp dụng các nguyên t�
 
 ---
 
-**Ngày tạo:** 21/10/2025  
+ 
 **Người viết:** Team KTHP  
 **Phiên bản:** 1.0  

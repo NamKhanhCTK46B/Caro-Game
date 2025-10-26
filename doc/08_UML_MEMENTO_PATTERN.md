@@ -4,7 +4,7 @@
 
 File này chứa Class Diagram UML chi tiết cho **Memento Pattern** được áp dụng để hỗ trợ chức năng Undo/Redo trong Trò Chơi Caro.
 
-**Ngày tạo:** 26/10/2025  
+ 
 **Tác giả:** 2212391- Nguyễn Hoàng Nam Khánh  
 **Design Pattern:** Memento Pattern
 
@@ -1198,6 +1198,5 @@ Memento Pattern được áp dụng xuất sắc trong hệ thống Undo/Redo c�
 ---
 
 **Tác giả:** 2212391- Nguyễn Hoàng Nam Khánh  
-**Ngày tạo:** 26/10/2025  
 **Phiên bản:** 1.0  
 **Loại diagram:** Class Diagram UML - Memento Pattern
