@@ -126,6 +126,9 @@ htmlcov/
 !pom.xml
 !.gitignore
 
-# ===== Release Files (Optional) =====
-# Uncomment if you want to version control releases
-# !release/caro-game-*.jar
+# ===== Release Files =====
+# Keep release JAR but ignore distribution ZIPs
+!release/caro-game.jar
+!target/caro-game.jar
+*.zip
+*.tar.gz
