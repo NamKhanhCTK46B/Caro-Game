@@ -126,8 +126,6 @@ htmlcov/
 !pom.xml
 !.gitignore
 
-# ===== Release Files =====
-# Track release folder structure but not JAR files
-!release/
-!release/**/*.md
-release/**/*.jar
+# ===== Release Files (Optional) =====
+# Uncomment if you want to version control releases
+# !release/caro-game-*.jar
