@@ -30,6 +30,18 @@ public class MediumAIStrategy implements AIStrategy {
         }
         
         String opponent = aiPlayer.equals("X") ? "O" : "X";
+
+        // Luôn ưu tiên kết thúc ván nếu AI có nước thắng ngay.
+        Move winningMove = findImmediateMove(board, emptyCells, aiPlayer);
+        if (winningMove != null) {
+            return winningMove;
+        }
+
+        // Nếu không thể thắng ngay, chặn nước thắng kế tiếp của đối thủ.
+        Move blockingMove = findImmediateMove(board, emptyCells, opponent);
+        if (blockingMove != null) {
+            return new Move(blockingMove.getRow(), blockingMove.getCol(), aiPlayer);
+        }
         
         Move bestMove = null;
         int bestScore = Integer.MIN_VALUE;
@@ -54,6 +66,21 @@ public class MediumAIStrategy implements AIStrategy {
         }
         
         return bestMove;
+    }
+
+    private Move findImmediateMove(Board board, List<Cell> emptyCells, String player) {
+        for (Cell cell : emptyCells) {
+            int row = cell.getRow();
+            int col = cell.getCol();
+            board.makeMove(row, col, player);
+            boolean wins = board.checkWinFromPosition(row, col, player);
+            board.undoMove(row, col);
+
+            if (wins) {
+                return new Move(row, col, player);
+            }
+        }
+        return null;
     }
     
     /**

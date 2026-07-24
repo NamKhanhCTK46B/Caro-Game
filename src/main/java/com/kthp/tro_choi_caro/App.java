@@ -4,6 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.application.Platform;
+import javafx.geometry.Rectangle2D;
+import javafx.stage.Screen;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -66,7 +69,7 @@ public class App extends Application {
         stage.setMinHeight(600);
         
         // Mở cửa sổ ở chế độ maximize để tận dụng màn hình
-        stage.setMaximized(true);
+        maximizeStage(stage);
         
         // Hiển thị cửa sổ
         stage.show();
@@ -107,7 +110,33 @@ public class App extends Application {
         if (scene != null) {
             Parent root = loadFXML(fxml);
             scene.setRoot(root);
+            if ("menu".equals(fxml)) {
+                primaryStage.setTitle("Trò Chơi Caro - Game X-O");
+            }
+            maximizeStage(primaryStage);
         }
+    }
+
+    /**
+     * Đưa cửa sổ về đúng vùng hiển thị tối đa của màn hình hiện tại.
+     * Gọi lại sau khi thay Scene/Root vì JavaFX có thể dùng kích thước
+     * ưu tiên của giao diện mới và làm cửa sổ rời trạng thái maximized.
+     */
+    public static void maximizeStage(Stage stage) {
+        if (stage == null) {
+            return;
+        }
+
+        Rectangle2D bounds = Screen.getPrimary().getVisualBounds();
+        stage.setMaximized(false);
+        stage.setX(bounds.getMinX());
+        stage.setY(bounds.getMinY());
+        stage.setWidth(bounds.getWidth());
+        stage.setHeight(bounds.getHeight());
+        stage.setMaximized(true);
+
+        // Áp dụng lại sau một nhịp render để ổn định trên Windows/HiDPI.
+        Platform.runLater(() -> stage.setMaximized(true));
     }
     
     /**

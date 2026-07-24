@@ -174,7 +174,7 @@ public class GameModel {
      * Tạo memento lưu trạng thái hiện tại
      */
     public GameStateMemento createMemento() {
-        return new GameStateMemento(board, currentPlayer, gameState, moveNumber);
+        return new GameStateMemento(board, currentPlayer, gameState, moveNumber, winningLine);
     }
     
     /**
@@ -186,6 +186,7 @@ public class GameModel {
             this.currentPlayer = memento.getCurrentPlayer();
             this.gameState = memento.getGameState();
             this.moveNumber = memento.getMoveNumber();
+            this.winningLine = memento.getWinningLine();
             
             // Thông báo cho observers - Dùng BoardRestored thay vì BoardReset
             // để vẽ lại board chứ không xóa toàn bộ (cho Undo/Redo)

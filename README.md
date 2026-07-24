@@ -1,347 +1,126 @@
-# 🎮 CARO GAME - TRÒ CHƠI CỜ CARO
+# Trò chơi Caro
 
- 
+Ứng dụng cờ Caro trên bàn cờ 15 × 15, được xây dựng bằng JavaFX. Người chơi sử dụng quân **X** để đấu với máy (**O**) và giành chiến thắng bằng cách tạo một hàng gồm 5 quân liên tiếp theo chiều ngang, dọc hoặc chéo.
 
----
+## Tính năng
 
-## 📖 Giới thiệu
+- Ba mức độ: **Dễ**, **Trung bình** và **Khó**.
+- AI thay đổi chiến thuật theo độ khó đã chọn.
+- Hoàn tác và làm lại theo từng cặp nước đi của người chơi và AI.
+- Làm nổi bật 5 ô tạo thành đường thắng.
+- Theo dõi số ván thắng, thua và hòa trong phiên chơi.
+- Xem thống kê chi tiết hoặc đặt lại bảng điểm.
+- Bắt đầu ván mới và quay lại menu ngay trong màn hình chơi.
 
-Game Caro (Gomoku/Five in a Row) với 3 chế độ chơi:
-- 🟢 **Easy AI** - Random moves (cho người mới)
-- 🟡 **Medium AI** - Heuristic evaluation (trung bình)
-- 🔴 **Hard AI** - Minimax + Alpha-Beta Pruning (khó)
+## Chạy ứng dụng
 
-### ✨ Tính năng nổi bật:
+Yêu cầu:
 
-- ✅ Giao diện đồ họa JavaFX hiện đại
-- ✅ 3 mức độ AI khác nhau
-- ✅ Undo/Redo không giới hạn
-- ✅ Highlight đường thắng
-- ✅ Thống kê điểm số
-- ✅ Responsive UI
-- ✅ Clean Architecture (MVC + Design Patterns)
+- JDK 11 trở lên
+- Apache Maven 3.6 trở lên
 
----
-
-## 🚀 Cài đặt nhanh
-
-### Người dùng (chỉ chơi game):
-
-1. **Cài Java 11+**
-   - Download: https://adoptium.net/
-
-2. **Chạy game:**
-   ```cmd
-   java -jar target\caro-game.jar
-   ```
-
-### Developer (build từ source):
-
-1. **Yêu cầu:**
-   - JDK 11+
-   - Maven 3.6+
-
-2. **Build:**
-   ```cmd
-   mvn clean package -DskipTests
-   ```
-
-3. **Chạy:**
-   ```cmd
-   java -jar target\caro-game.jar
-   ```
-
-📘 **Hướng dẫn chi tiết:** Xem [HUONG_DAN_CAI_DAT.md](HUONG_DAN_CAI_DAT.md)
-
----
-
-## 🎯 Cách chơi
-
-1. Chọn mức độ: Easy / Medium / Hard
-2. Click vào ô trống để đánh X
-3. AI sẽ tự động đánh O
-4. Người đầu tiên có 5 quân liên tiếp (ngang/dọc/chéo) thắng
-5. Dùng Undo/Redo để quay lại nước đi
-6. Click "New Game" để chơi lại
-
-### Phím tắt:
-- **Ctrl+Z** - Undo
-- **Ctrl+Y** - Redo
-- **Ctrl+N** - New Game
-- **Esc** - Back to Menu
-
----
-
-## 🏗️ Công nghệ sử dụng
-
-### Core Technologies:
-- **Java 11** - Programming language
-- **JavaFX 21** - GUI framework
-- **Maven** - Build tool & dependency management
-
-### Design Patterns:
-- **MVC Pattern** - Architecture
-- **Strategy Pattern** - AI algorithms (3 strategies)
-- **Observer Pattern** - View updates
-- **Memento Pattern** - Undo/Redo
-- **Singleton Pattern** - Score management
-
-### AI Algorithms:
-- **Easy:** Random selection - O(n²)
-- **Medium:** Heuristic pattern matching - O(n² × 8)
-- **Hard:** Minimax + Alpha-Beta Pruning - O(b^(d/2))
-
----
-
-## 📁 Cấu trúc dự án
-
-```
-caro-game/
-├── src/main/java/              # Source code
-│   └── com.kthp.tro_choi_caro/
-│       ├── App.java            # Entry point
-│       ├── controller/         # MVC Controllers (2 classes)
-│       ├── model/              # Business logic (10 classes)
-│       ├── strategy/           # AI algorithms (5 classes)
-│       └── view/               # Observer interface (1 class)
-├── src/main/resources/         # FXML & CSS
-├── doc/                        # Documentation (8 files)
-├── scripts/                    # ⭐ Build scripts (4 files, tối ưu -60%)
-├── target/                     # Build output
-│   └── caro-game.jar          # ⭐ Executable JAR
-├── pom.xml                     # Maven config
-├── .gitignore                  # ⭐ Git ignore rules
-├── README.md                   # This file
-├── HUONG_DAN_CAI_DAT.md       # ⭐ Complete installation guide
-├── TOI_UU_SCRIPTS.md          # ⭐ Scripts optimization docs
-└── TOM_TAT_TOI_UU.md          # ⭐ Optimization summary
-```
-
----
-
-## 📊 Thống kê dự án
-
-| Metric              | Value        |
-|---------------------|--------------|
-| **Lines of Code**   | ~2,000       |
-| **Java Classes**    | 20 classes   |
-| **Design Patterns** | 5 patterns   |
-| **AI Algorithms**   | 3 algorithms |
-| **Documentation**   | 12 MD files  |
-| **JAR Size**        | 9.5 MB       |
-| **Build Time**      | ~20 seconds  |
-
----
-
-## 🎮 Screenshots
-
-### Menu Screen
-```
-┌────────────────────────────────┐
-│         CARO GAME              │
-│                                │
-│      [ Easy Mode ]             │
-│      [ Medium Mode ]           │
-│      [ Hard Mode ]             │
-│                                │
-│   High Scores: 10 - 5          │
-│      [ Exit ]                  │
-└────────────────────────────────┘
-```
-
-### Game Screen
-```
-┌────────────────────────────────┐
-│ Status: Playing | Turn: X      │
-│ Score: Player 3 - AI 2         │
-├────────────────────────────────┤
-│   0 1 2 3 4 5 6 7 8 9 ...      │
-│ 0 . . . . . . . . . . ...      │
-│ 1 . . X . . . . . . . ...      │
-│ 2 . . . O . . . . . . ...      │
-│ 3 . . X . O . . . . . ...      │
-│ 4 . . . . . . . . . . ...      │
-│ ... (15×15 board)              │
-├────────────────────────────────┤
-│ [Undo] [Redo] [New] [Menu]     │
-└────────────────────────────────┘
-```
-
----
-
-## 📚 Tài liệu
-
-### Tài liệu dự án (folder `doc/`):
-
-1. **01_TONG_QUAN_DU_AN.md** - Tổng quan dự án
-2. **02_KIEN_TRUC_PHAN_MEM.md** - Kiến trúc phần mềm
-3. **03_THUAT_TOAN_AI.md** - Thuật toán AI chi tiết
-4. **04_KET_LUAN_VA_DANH_GIA.md** - Kết luận và đánh giá
-5. **05_SO_DO_LOP_CHI_TIET.md** - Sơ đồ lớp
-6. **06_UML_STRATEGY_PATTERN.md** - UML Strategy Pattern
-7. **07_UML_OBSERVER_PATTERN.md** - UML Observer Pattern
-8. **08_UML_MEMENTO_PATTERN.md** - UML Memento Pattern
-
-### Hướng dẫn:
-
-- **HUONG_DAN_CAI_DAT.md** - Hướng dẫn cài đặt đầy đủ
-- **scripts/README.md** - Hướng dẫn sử dụng scripts
-
----
-
-## 🛠️ Scripts tiện ích
-
-| Script                   | Mục đích                   |
-|--------------------------|----------------------------|
-| `build-jar.bat`          | Build executable JAR       |
-| `run-jar.bat`            | Chạy game từ JAR           |
-| `run.bat`                | Compile và chạy bằng Maven |
-| `run-quick.bat`          | Chạy nhanh (không compile) |
-| `clean.bat`              | Xóa build files            |
-| `cleanup.bat`            | Tối ưu dung lượng dự án    |
-| `install-maven-user.bat` | Cài Maven tự động          |
-| `verify-and-build.bat`   | Verify + Build             |
-
-**Cách dùng:**
-```cmd
-cd scripts
-build-jar.bat
-```
-
----
-
-## 🔧 Build & Development
-
-### Build commands:
-
-```bash
-# Clean project
-mvn clean
-
-# Compile only
-mvn compile
-
-# Run with Maven
+```powershell
 mvn javafx:run
+```
 
-# Build JAR (recommended)
+Nếu Maven báo cấu hình `JAVA_HOME` chưa hợp lệ, hãy đặt biến này về thư mục JDK đang sử dụng rồi chạy lại lệnh.
+
+> **Lưu ý:** bản JAR hiện có trong `release/` có thể báo thiếu JavaFX runtime trên một số phiên bản JDK. Chạy qua Maven là phương án ổn định được khuyến nghị.
+
+## Video demo
+
+Video minh họa các thao tác chính của ứng dụng: chọn độ khó, đánh với AI, hoàn tác/làm lại, tạo ván mới, xem thống kê, đặt lại điểm và quay về menu.
+
+[Xem video demo](artifacts/caro-game-demo.mp4)
+
+## Biên dịch và đóng gói
+
+```powershell
 mvn clean package -DskipTests
-
-# Build offline (fast)
-mvn package -DskipTests -o
-
-# Build with tests
-mvn clean package
 ```
 
-### Run commands:
+Sau khi hoàn tất, tệp đóng gói được tạo tại:
 
-```bash
-# Run from JAR
+```text
+target/caro-game.jar
+```
+
+Bạn có thể thử khởi chạy tệp vừa tạo bằng lệnh:
+
+```powershell
 java -jar target/caro-game.jar
-
-# Run with Maven
-mvn javafx:run
-
-# Run with script
-scripts\run-jar.bat
 ```
 
----
+Nếu gặp thông báo `JavaFX runtime components are missing`, hãy dùng `mvn javafx:run`.
 
-## 🧪 Testing
+Trên Windows, thư mục `scripts/` cung cấp thêm các tiện ích:
 
-```bash
-# Run tests
-mvn test
+| Tệp | Công dụng |
+| --- | --- |
+| `build.bat` | Biên dịch hoặc đóng gói dự án |
+| `run.bat` | Chạy từ mã nguồn hoặc tệp JAR |
+| `install-maven.bat` | Hỗ trợ cài đặt Maven |
+| `cleanup.bat` | Xóa kết quả build và tệp tạm |
 
-# Run specific test
-mvn test -Dtest=GameModelTest
+## Cách chơi
 
-# Run with coverage
-mvn clean test jacoco:report
+1. Chọn một trong ba mức độ ở màn hình chính.
+2. Nhấn **Bắt đầu chơi**.
+3. Chọn một ô trống trên bàn cờ để đặt quân **X**.
+4. Chờ AI đặt quân **O**, sau đó tiếp tục lượt của bạn.
+5. Người đầu tiên tạo được 5 quân liên tiếp sẽ thắng.
+
+Các nút điều khiển trong màn hình chơi:
+
+- **Ván mới**: xóa bàn cờ hiện tại và bắt đầu lại.
+- **Menu**: trở về màn hình chọn độ khó.
+- **Hoàn tác**: quay lại một lượt đầy đủ, gồm nước của người chơi và AI.
+- **Làm lại**: khôi phục lượt vừa hoàn tác.
+- **Thống kê**: hiển thị kết quả chi tiết của phiên chơi.
+- **Reset điểm**: đưa toàn bộ số liệu thắng, thua và hòa về 0.
+
+## Công nghệ và kiến trúc
+
+- **Java 11**: phiên bản ngôn ngữ mục tiêu khi biên dịch.
+- **JavaFX 21**: giao diện đồ họa.
+- **Maven**: quản lý thư viện và quy trình đóng gói.
+- **MVC**: tách biệt mô hình, giao diện và bộ điều khiển.
+- **Strategy**: chuyển đổi thuật toán AI theo độ khó.
+- **Observer**: đồng bộ trạng thái trò chơi với giao diện.
+- **Memento**: lưu trạng thái phục vụ hoàn tác và làm lại.
+- **Singleton**: quản lý bảng điểm dùng chung trong phiên chạy.
+
+## Cấu trúc dự án
+
+```text
+caro-game/
+├── src/main/java/                         # Mã nguồn Java
+│   └── com/kthp/tro_choi_caro/
+│       ├── controller/                    # Điều khiển menu và bàn chơi
+│       ├── model/                         # Luật chơi, bàn cờ và lịch sử nước đi
+│       ├── strategy/                      # Ba chiến thuật AI
+│       ├── view/                          # Giao diện Observer
+│       └── App.java                       # Điểm khởi chạy ứng dụng
+├── src/main/resources/                    # Giao diện FXML và CSS
+├── doc/                                   # Tài liệu phân tích, kiến trúc và UML
+├── scripts/                               # Tiện ích dành cho Windows
+├── release/caro-game.jar                  # Bản chạy đã đóng gói
+├── pom.xml                                # Cấu hình Maven
+└── HUONG_DAN_CAI_DAT.md                   # Hướng dẫn cài đặt chi tiết
 ```
 
----
+## Tài liệu
 
-## 🐛 Xử lý lỗi
+- [Tổng quan dự án](doc/01_TONG_QUAN_DU_AN.md)
+- [Kiến trúc phần mềm](doc/02_KIEN_TRUC_PHAN_MEM.md)
+- [Thuật toán AI](doc/03_THUAT_TOAN_AI.md)
+- [Kết luận và đánh giá](doc/04_KET_LUAN_VA_DANH_GIA.md)
+- [Sơ đồ lớp chi tiết](doc/05_SO_DO_LOP_CHI_TIET.md)
+- [UML Strategy Pattern](doc/06_UML_STRATEGY_PATTERN.md)
+- [UML Observer Pattern](doc/07_UML_OBSERVER_PATTERN.md)
+- [UML Memento Pattern](doc/08_UML_MEMENTO_PATTERN.md)
+- [Hướng dẫn cài đặt đầy đủ](HUONG_DAN_CAI_DAT.md)
 
-### Lỗi thường gặp:
+## Tác giả
 
-1. **"java không được nhận dạng"**
-   - Cài Java 11+
-   - Thêm vào PATH
-
-2. **"mvn không được nhận dạng"**
-   - Đóng và mở lại terminal
-   - Hoặc dùng script: `install-maven-user.bat`
-
-3. **"BUILD FAILURE"**
-   - Clean: `mvn clean`
-   - Xóa cache: `rm -rf ~/.m2/repository`
-   - Build lại: `mvn package`
-
-4. **"JavaFX runtime missing"**
-   - Dùng đúng JAR: `caro-game.jar`
-   - Không dùng: `tro_choi_caro-1.0-SNAPSHOT.jar`
-
-📘 **Chi tiết:** Xem [HUONG_DAN_CAI_DAT.md](HUONG_DAN_CAI_DAT.md) - Mục "Xử lý lỗi"
-
----
-
-## 🎯 Roadmap
-
-### Version 1.0 (Current) ✅
-- [x] 3 AI levels
-- [x] Undo/Redo
-- [x] Score tracking
-- [x] JavaFX GUI
-
-### Version 1.1 (Planned)
-- [ ] Multiplayer (LAN/Online)
-- [ ] Save/Load game
-- [ ] Custom board size
-- [ ] Game replay
-- [ ] Sound effects
-- [ ] Themes
-
-### Version 2.0 (Future)
-- [ ] Neural Network AI
-- [ ] Tournament mode
-- [ ] Leaderboard
-- [ ] Achievements
-- [ ] Mobile version
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome! Please:
-
-1. Fork the repository
-2. Create feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Open Pull Request
-
----
-
-## 🙏 Acknowledgments
-
-- **JavaFX** - GUI framework
-- **Maven** - Build tool
-- **Eclipse Adoptium** - JDK distribution
-- **Stack Overflow** - Community support
-- **GitHub Copilot** - AI assistant
-
----
-
-## ⭐ Star History
-
-Nếu bạn thấy project hữu ích, hãy cho một ⭐!
-
----
-
-**Made with ❤️ by Nguyễn Hoàng Nam Khánh**
-
-**Happy Gaming! 🎮🎯**
+Nguyễn Hoàng Nam Khánh — MSSV 2212391

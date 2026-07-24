@@ -11,12 +11,15 @@ public class GameStateMemento {
     private final String currentPlayer;
     private final GameState gameState;
     private final int moveNumber;
+    private final WinningLine winningLine;
     
-    public GameStateMemento(Board board, String currentPlayer, GameState gameState, int moveNumber) {
+    public GameStateMemento(Board board, String currentPlayer, GameState gameState,
+                            int moveNumber, WinningLine winningLine) {
         this.board = board.deepCopy(); // Tạo bản sao sâu
         this.currentPlayer = currentPlayer;
         this.gameState = gameState;
         this.moveNumber = moveNumber;
+        this.winningLine = winningLine;
     }
     
     public Board getBoard() {
@@ -33,5 +36,9 @@ public class GameStateMemento {
     
     public int getMoveNumber() {
         return moveNumber;
+    }
+
+    public WinningLine getWinningLine() {
+        return winningLine;
     }
 }

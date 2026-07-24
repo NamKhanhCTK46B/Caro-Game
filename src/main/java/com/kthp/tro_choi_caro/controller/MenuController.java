@@ -137,11 +137,13 @@ public class MenuController {
             Stage stage = (Stage) startButton.getScene().getWindow();
             Scene scene = new Scene(root, 1200, 800);
             
+            stage.setMaximized(false);
             stage.setScene(scene);
             stage.setTitle("Caro Game - " + difficulty.toUpperCase());
             stage.setResizable(true);
             stage.setMinWidth(1000);
             stage.setMinHeight(700);
+            com.kthp.tro_choi_caro.App.maximizeStage(stage);
             
         } catch (IOException e) {
             showError("Không thể khởi động game", 

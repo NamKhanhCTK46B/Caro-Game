@@ -58,6 +58,7 @@ public class GameController implements GameObserver {
     private Button[][] cellButtons;
     private String difficulty;
     private ScoreManager scoreManager;  // Quản lý điểm số
+    private volatile long gameSessionId;
     
     /**
      * Khởi tạo controller
@@ -77,6 +78,7 @@ public class GameController implements GameObserver {
      * Thiết lập game với mức độ khó
      */
     public void setupGame(String difficulty) {
+        gameSessionId++;
         this.difficulty = difficulty;
         this.gameModel = new GameModel();
         
@@ -165,31 +167,43 @@ public class GameController implements GameObserver {
         if (gameModel.makeMove(row, col)) {
             // Nếu game chưa kết thúc và đến lượt AI
             if (!gameModel.isGameOver() && gameModel.getCurrentPlayer().equals("O")) {
-                // Delay một chút để AI đi (tạo cảm giác tự nhiên)
-                new Thread(() -> {
-                    try {
-                        Thread.sleep(500); // 0.5 giây
-                        Platform.runLater(this::makeAIMove);
-                    } catch (InterruptedException e) {
-                        Thread.currentThread().interrupt();
-                    }
-                }).start();
+                scheduleAIMove();
             }
         }
     }
     
     /**
-     * AI thực hiện nước đi
+     * Tính nước đi trên bản sao của bàn cờ để không khóa JavaFX Application
+     * Thread. Session id ngăn tác vụ cũ ghi vào ván vừa reset hoặc màn hình cũ.
      */
-    private void makeAIMove() {
-        if (gameModel == null || gameModel.isGameOver()) {
-            return;
-        }
-        
-        Move aiMove = aiPlayer.makeMove(gameModel.getBoard());
-        if (aiMove != null) {
-            gameModel.makeMove(aiMove.getRow(), aiMove.getCol());
-        }
+    private void scheduleAIMove() {
+        final long expectedSessionId = gameSessionId;
+        final GameModel expectedModel = gameModel;
+        final AIPlayer expectedAI = aiPlayer;
+        final Board boardSnapshot = expectedModel.getBoard().deepCopy();
+
+        Thread aiThread = new Thread(() -> {
+            try {
+                Thread.sleep(500);
+                Move aiMove = expectedAI.makeMove(boardSnapshot);
+
+                Platform.runLater(() -> {
+                    if (aiMove == null
+                            || gameSessionId != expectedSessionId
+                            || gameModel != expectedModel
+                            || gameModel.isGameOver()
+                            || !"O".equals(gameModel.getCurrentPlayer())
+                            || !gameModel.getBoard().isCellEmpty(aiMove.getRow(), aiMove.getCol())) {
+                        return;
+                    }
+                    gameModel.makeMove(aiMove.getRow(), aiMove.getCol());
+                });
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }, "caro-ai-worker");
+        aiThread.setDaemon(true);
+        aiThread.start();
     }
     
     /**
@@ -314,6 +328,7 @@ public class GameController implements GameObserver {
         
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
+            gameSessionId++;
             gameModel.resetGame();
             updateButtonStates(); // Cập nhật trạng thái nút Undo/Redo
         }
@@ -325,6 +340,7 @@ public class GameController implements GameObserver {
     @FXML
     private void handleBackToMenu() {
         try {
+            gameSessionId++;
             com.kthp.tro_choi_caro.App.setRoot("menu");
         } catch (Exception e) {
             showAlert("Lỗi", "Không thể quay về menu: " + e.getMessage(), Alert.AlertType.ERROR);
